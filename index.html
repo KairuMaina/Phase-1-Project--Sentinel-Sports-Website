@@ -47,78 +47,47 @@
     </section>
 
     <!-- Betting Section -->
-<section class="betting py-5" style="background-color: #444;">
-    <div class="container">
-        <h2 class="text-center text-white">Place Your Bet</h2>
-        <div class="bet-card bg-dark text-white p-4 rounded mb-3">
-            <h3 id="match-title">Upcoming Match: Team A vs Team B</h3>
+    <section class="betting py-5" style="background-color: #444;">
+        <div class="container">
+            <h2 class="text-center text-white">Place Your Bet</h2>
+            <div class="bet-card bg-dark text-white p-4 rounded mb-3">
+                <h3 id="match-title">Upcoming Match: Select a match to view details</h3>
 
-            <!-- Team Selection -->
-            <div class="bet-options mb-3">
-                <label for="team-selection" class="form-label">Select Your Team:</label>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="team" id="teamA" value="Team A" checked>
-                    <label class="form-check-label" for="teamA">
-                        Team A
-                    </label>
+                <!-- Team Selection -->
+                <div id="team-selection-container" style="display: none;">
+                    <label for="team-selection" class="form-label">Select Your Team:</label>
+                    <div id="team-options" class="bet-options mb-3"></div>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="team" id="teamB" value="Team B">
-                    <label class="form-check-label" for="teamB">
-                        Team B
-                    </label>
+
+                <!-- Betting Amount -->
+                <div class="mb-3">
+                    <label for="bet-amount" class="form-label">Enter Bet Amount:</label>
+                    <input type="number" id="bet-amount" class="form-control" placeholder="Enter amount">
                 </div>
+
+                <!-- Place Bet Button -->
+                <button id="place-bet-btn" class="place-bet-btn btn btn-warning">Place Bet</button>
             </div>
-
-            <!-- Bet Amount Input -->
-            <div class="bet-amount mb-3">
-                <label for="bet-amount" class="form-label">Bet Amount:</label>
-                <input type="number" id="bet-amount" class="form-control" min="1" placeholder="Enter amount">
-            </div>
-
-            <!-- Place Bet Button -->
-            <button class="place-bet-btn btn btn-warning mt-3" onclick="placeBet()">Place Bet</button>
-
-            <!-- Odds -->
-            <div class="odds mt-3">
-                <span class="team">Team A: 1.80</span>
-                <span class="team">Team B: 2.10</span>
-            </div>
-
-            <!-- Bet Result -->
-            <div id="bet-result" class="mt-3 text-success"></div>
         </div>
-    </div>
-</section>
+    </section>
 
+    <!-- Bet Status Section -->
+    <div id="bet-status" class="alert alert-success" style="display: none;">
+        <!-- Bet details will be displayed here after the bet is placed -->
+    </div>
+
+    <!-- Bet History Section -->
+<div id="bet-history-container" class="mt-5" style="display: none;">
+    <h4 class="text-white">Your Bet History:</h4>
+    <!-- Placed bets will be displayed here -->
+</div>
 
 
     <!-- Upcoming Matches Section -->
-    <section class="upcoming-matches py-5" style="background-color: #2f2f2f;">
+    <section class="upcoming-matches py-5">
         <div class="container">
-            <h2 class="text-center text-white">Upcoming Sports Matches</h2>
-            <!-- Add this div where matches will be appended dynamically for different sports -->
-            <div id="upcoming-matches-container"></div>
-        </div>
-    </section>
-
-    <!-- Featured Matches Section -->
-    <section class="featured-matches py-5" style="background-color: #444;">
-        <div class="container">
-            <h2 class="text-center text-white">Featured Matches</h2>
-            <!-- Add this div for carousel items -->
-            <div id="featured-matches-carousel" class="carousel"></div>
-        </div>
-    </section>
-
-    <!-- Sports-specific Sections -->
-    <!-- Add dynamic content for different sports, e.g., Football, Rugby, Basketball, etc. -->
-    <section class="sports-matches py-5" style="background-color: #2f2f2f;">
-        <div class="container">
-            <h2 class="text-center text-white">Upcoming Matches (Various Sports)</h2>
-            <div id="sports-matches-container" class="row">
-                <!-- Matches for different sports will be dynamically inserted here -->
-            </div>
+            <h2 class="text-center mt-5 upcoming-matches-heading">Upcoming Sports Matches</h2>
+            <div id="matches-container" class="mt-3"></div>
         </div>
     </section>
 
@@ -138,4 +107,3 @@
     <script src="scripts.js"></script>
 </body>
 </html>
-
